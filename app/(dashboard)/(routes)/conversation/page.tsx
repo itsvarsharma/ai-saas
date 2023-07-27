@@ -102,7 +102,7 @@ const ConversationPage = () => {
                 )}
                 {messages.length===0 && !isLoading &&(
                     <div>
-                        <Empty label="No conversation to show!"/>
+                        <Empty label="No conversation to show!" src="/empty.png"/>
                     </div>
                 )}
                 <div className="flex flex-col-reverse gap-y-4">

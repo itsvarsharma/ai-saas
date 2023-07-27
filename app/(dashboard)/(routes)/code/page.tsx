@@ -102,7 +102,7 @@ const CodePage = () => {
                 )}
                 {messages.length===0 && !isLoading &&(
                     <div>
-                        <Empty label="No conversation to show!"/>
+                        <Empty label="Nothing to show!" src="/no-code.webp"/>
                     </div>
                 )}
                 <div className="flex flex-col-reverse gap-y-4">
