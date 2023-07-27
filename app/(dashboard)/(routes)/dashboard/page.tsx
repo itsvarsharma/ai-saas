@@ -15,15 +15,15 @@ const tools=[
     {
         label:"Image Generation",
         icon: ImageIcon,
-        color: "text-pink-600",
-        bgColor: "bg-pink-500/10",
+        color: "text-rose-600",
+        bgColor: "bg-rose-500/10",
         href:"/image"
     },
     {
         label:"Video Generation",
         icon: VideoIcon,
-        color: "text-emerald-400",
-        bgColor: "bg-emerald-400/10",
+        color: "text-teal-400",
+        bgColor: "bg-teal-400/10",
         href:"/video"
     },
     {
@@ -36,8 +36,8 @@ const tools=[
     {
         label:"Code Generation",
         icon: Code,
-        color: "text-green-600",
-        bgColor: "bg-green-500/10",
+        color: "text-lime-600",
+        bgColor: "bg-lime-500/10",
         href:"/code"
     },
 ]

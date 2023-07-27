@@ -18,7 +18,7 @@ const routes=[
     label:"Dashboard",
     icon: LayoutDashboard ,
     href: "/dashboard",
-    color: "text-sky-400",
+    color: "text-yellow-300",
     },
     {
         label:"Conversation",
@@ -30,13 +30,13 @@ const routes=[
         label:"Image Generation",
         icon: ImageIcon ,
         href: "/image",
-        color: "text-pink-400",
+        color: "text-rose-400",
     },
     {
         label:"Video Generation",
         icon: VideoIcon ,
         href: "/video",
-        color: "text-emerald-400",
+        color: "text-teal-400",
     },
     {
         label:"Music Generation",
@@ -48,13 +48,13 @@ const routes=[
         label:"Code Generation",
         icon: Code ,
         href: "/code",
-        color: "text-green-400",
+        color: "text-lime-400",
     },
     {
         label:"Settings",
         icon: Settings ,
         href: "/settings",
-        color: "text-gray-300",
+        color: "text-sky-400",
     },
 ]
 

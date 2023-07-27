@@ -58,8 +58,8 @@ const ImagePage = () => {
                 title="Image Generator"
                 description="Our most advanced image generation model."
                 icon={ImageIcon}
-                iconColor="text-pink-600"
-                bgColor="bg-pink-500/10"
+                iconColor="text-rose-600"
+                bgColor="bg-rose-500/10"
             />
             <div className="px-4 lg:px-8">
                 <Form {...form}>
@@ -152,7 +152,7 @@ const ImagePage = () => {
                                 </FormItem>
                             )}
                         />
-                        <Button className="col-span-12 lg:col-span-2 w-full bg-pink-600 hover:bg-pink-500" disabled={isLoading}>
+                        <Button className="col-span-12 lg:col-span-2 w-full bg-rose-600 hover:bg-rose-500" disabled={isLoading}>
                             Generate
                         </Button>
                     </form>
