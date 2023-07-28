@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 import axios from "axios";
-import { Music } from "lucide-react";
+import { Video } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -17,10 +17,10 @@ import { formSchema } from "./constants";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
 
-const MusicPage = () => {
+const VideoPage = () => {
     const router = useRouter();
 
-    const [music, setMusic] = useState<string>();
+    const [video, setVideo] = useState<string>();
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
@@ -32,10 +32,10 @@ const MusicPage = () => {
 
     const onSubmit = async (values: z.infer<typeof formSchema>) => {
         try {
-            setMusic(undefined);
+            setVideo(undefined);
 
-            const response = await axios.post('/api/music', values);
-            setMusic(response.data.audio);
+            const response = await axios.post('/api/video', values);
+            setVideo(response.data[0]);
             form.reset();
         } catch (error: any) {
             //todo:open pro model
@@ -49,7 +49,7 @@ const MusicPage = () => {
             <Heading
                 title="Video Generator"
                 description="Our most advanced video generator model."
-                icon={Music}
+                icon={Video}
                 iconColor="text-teal-500"
                 bgColor="bg-teal-500/10"
             />
@@ -75,7 +75,7 @@ const MusicPage = () => {
                                         <Input
                                             className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                                             disabled={isLoading}
-                                            placeholder="Piano solo"
+                                            placeholder="Time-lapse of stars dancing in the night sky"
                                             {...field}
                                         />
                                     </FormControl>
@@ -94,18 +94,18 @@ const MusicPage = () => {
                         <Loader/>
                     </div>
                 )}
-                {!music && !isLoading &&(
+                {!video && !isLoading &&(
                     <div>
-                        <Empty label="No data to show!" src="/no-data.png"/>
+                        <Empty label="No video to show!" src="/no-data.png"/>
                     </div>
                 )}
-                {music && (
-                    <audio controls className="w-full mt-8">
-                        <source src={music}/>
-                    </audio>
+                {video && (
+                    <video controls className="m-2 mt-8 aspect-video md:col-span-8 lg:col-span-8 rounded-lg border bg-black">
+                        <source src={video}/>
+                    </video>
                 )}
             </div>
         </div>
     );
 }
-export default MusicPage;
+export default VideoPage;
