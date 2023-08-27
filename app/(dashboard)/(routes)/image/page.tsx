@@ -2,7 +2,7 @@
 
 import * as z from "zod";
 import axios from "axios";
-import { ImageIcon, Download} from "lucide-react";
+import { ImageIcon, Download } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -170,24 +170,24 @@ const ImagePage = () => {
                     </div>
                 )}
                 <div className="grid grid-cols-1 md:grid-cols2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-8">
-                    {images.map((src)=>(
+                    {images.map((src) => (
                         <Card
-                        key={src}
-                        className="rounded-lg overflow-hidden"
+                            key={src}
+                            className="rounded-lg overflow-hidden"
                         >
                             <div className="relative aspect-square">
                                 <Image
-                                alt="Image"
-                                fill
-                                src={src}
+                                    alt="Image"
+                                    fill
+                                    src={src}
                                 />
 
                             </div>
                             <CardFooter className="p-2">
-                                <Button 
-                                onClick={()=>window.open(src)}
-                                variant="secondary" className="w-full">
-                                    <Download className="h-4 w-4 mr-2"/>
+                                <Button
+                                    onClick={() => window.open(src)}
+                                    variant="secondary" className="w-full">
+                                    <Download className="h-4 w-4 mr-2" />
                                     Dwonload
                                 </Button>
                             </CardFooter>

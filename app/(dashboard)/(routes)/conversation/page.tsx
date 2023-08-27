@@ -97,22 +97,22 @@ const ConversationPage = () => {
             <div className="space-y-4 mt-4">
                 {isLoading && (
                     <div className="p-8 rounded-lg w-full flex items-center justify-center">
-                        <Loader/>
+                        <Loader />
                     </div>
                 )}
-                {messages.length===0 && !isLoading &&(
+                {messages.length === 0 && !isLoading && (
                     <div>
-                        <Empty label="No conversation to show!" src="/empty.png"/>
+                        <Empty label="No conversation to show!" src="/empty.png" />
                     </div>
                 )}
                 <div className="flex flex-col-reverse gap-y-4">
                     {messages.map((message) => (
                         <div key={message.content}
-                        className={cn("p-8 w-full flex items-start gap-x-8 rounded-lg",
-                        message.role==="user"?"bg-white border border-violet-300": "bg-muted"
-                        )}
+                            className={cn("p-8 w-full flex items-start gap-x-8 rounded-lg",
+                                message.role === "user" ? "bg-white border border-violet-300" : "bg-muted"
+                            )}
                         >
-                            {message.role==="user"? <UserAvatar/>:<BotAvatar/>}
+                            {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
                             <p className="text-sm">
                                 {message.content}
                             </p>

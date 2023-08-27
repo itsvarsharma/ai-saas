@@ -91,17 +91,17 @@ const VideoPage = () => {
             <div className="space-y-4 mt-4">
                 {isLoading && (
                     <div className="p-8 rounded-lg w-full flex items-center justify-center">
-                        <Loader/>
+                        <Loader />
                     </div>
                 )}
-                {!video && !isLoading &&(
+                {!video && !isLoading && (
                     <div>
-                        <Empty label="No video to show!" src="/no-data.png"/>
+                        <Empty label="No video to show!" src="/no-data.png" />
                     </div>
                 )}
                 {video && (
                     <video controls className="m-2 mt-8 aspect-video md:col-span-8 lg:col-span-8 rounded-lg border bg-black">
-                        <source src={video}/>
+                        <source src={video} />
                     </video>
                 )}
             </div>

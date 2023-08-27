@@ -97,37 +97,37 @@ const CodePage = () => {
             <div className="space-y-4 mt-4">
                 {isLoading && (
                     <div className="p-8 rounded-lg w-full flex items-center justify-center">
-                        <Loader/>
+                        <Loader />
                     </div>
                 )}
-                {messages.length===0 && !isLoading &&(
+                {messages.length === 0 && !isLoading && (
                     <div>
-                        <Empty label="Nothing to show!" src="/no-code.webp"/>
+                        <Empty label="Nothing to show!" src="/no-code.webp" />
                     </div>
                 )}
                 <div className="flex flex-col-reverse gap-y-4">
                     {messages.map((message) => (
                         <div key={message.content}
-                        className={cn("p-8 w-full flex items-start gap-x-8 rounded-lg",
-                        message.role==="user"?"bg-white border border-violet-300": "bg-muted"
-                        )}
+                            className={cn("p-8 w-full flex items-start gap-x-8 rounded-lg",
+                                message.role === "user" ? "bg-white border border-violet-300" : "bg-muted"
+                            )}
                         >
-                            {message.role==="user"? 
-                            <UserAvatar/>:<BotAvatar/>}
-                            
-                            <ReactMarkdown
-                            components={ {
-                                pre: ( { node, ...props} ) => (
-                                    <div className="overflow-auto w-full my-2 bg-black/10 p-2 rouded-lg">
-                                        < pre {...props} />
+                            {message.role === "user" ?
+                                <UserAvatar /> : <BotAvatar />}
 
-                                    </div>
-                                ),
-                                code:( { node, ...props } ) => (
-                                    <code className="bg-black/10 rounded-lg p-1" {...props}/>
-                                )
-                            }}
-                            className="test-sm overflow-idden leading-7"
+                            <ReactMarkdown
+                                components={{
+                                    pre: ({ node, ...props }) => (
+                                        <div className="overflow-auto w-full my-2 bg-black/10 p-2 rouded-lg">
+                                            < pre {...props} />
+
+                                        </div>
+                                    ),
+                                    code: ({ node, ...props }) => (
+                                        <code className="bg-black/10 rounded-lg p-1" {...props} />
+                                    )
+                                }}
+                                className="test-sm overflow-idden leading-7"
                             >
                                 {message.content || ""}
                             </ReactMarkdown>
