@@ -92,17 +92,17 @@ const MusicPage = () => {
             <div className="space-y-4 mt-4">
                 {isLoading && (
                     <div className="p-8 rounded-lg w-full flex items-center justify-center">
-                        <Loader/>
+                        <Loader />
                     </div>
                 )}
-                {!music && !isLoading &&(
+                {!music && !isLoading && (
                     <div>
-                        <Empty label="No data to show!" src="/no-data.png"/>
+                        <Empty label="No data to show!" src="/no-data.png" />
                     </div>
                 )}
                 {music && (
                     <audio controls className="w-full mt-8">
-                        <source src={music}/>
+                        <source src={music} />
                     </audio>
                 )}
             </div>

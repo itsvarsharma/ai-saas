@@ -1,19 +1,19 @@
 import Image from "next/image";
 
-interface EmptyProps{
+interface EmptyProps {
     label: string,
     src: string;
 }
-export const Empty=({
+export const Empty = ({
     label,
     src
-}: EmptyProps)=>{
-    return(
+}: EmptyProps) => {
+    return (
         <div className="h-full p-20 flex flex-col items-center justify-center">
             <div className="relative h-60 w-60">
-              <Image alt="Empty"
-              fill
-              src= {src}/>  
+                <Image alt="Empty"
+                    fill
+                    src={src} />
             </div>
             <p className="test-muted-foreground text-sm text-center">
                 {label}

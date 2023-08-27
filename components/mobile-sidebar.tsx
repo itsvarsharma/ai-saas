@@ -7,23 +7,23 @@ import Sidebar from "@/components/sidebar";
 import { useState, useEffect } from "react";
 
 const MobileSidebar = () => {
-    const [isMounted, setIsMounted]= useState(false);
-    useEffect(()=>{
+    const [isMounted, setIsMounted] = useState(false);
+    useEffect(() => {
         setIsMounted(true);
     }, []);
-    if(!isMounted){
+    if (!isMounted) {
         return null;
     }
     return (
         <Sheet>
             <SheetTrigger>
-            <Button variant="ghost" size="icon"
-                className="md:hidden">
-                <Menu />
-            </Button>
+                <Button variant="ghost" size="icon"
+                    className="md:hidden">
+                    <Menu />
+                </Button>
             </SheetTrigger>
             <SheetContent side="left" className="p-0">
-                <Sidebar/>
+                <Sidebar />
             </SheetContent>
         </Sheet>
     );

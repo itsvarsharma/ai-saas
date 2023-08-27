@@ -1,14 +1,14 @@
 import * as z from "zod";
 
-export const formSchema= z.object({
-    prompt: z.string().min(1,{
-        message:" Image Prompt is required",
+export const formSchema = z.object({
+    prompt: z.string().min(1, {
+        message: " Image Prompt is required",
     }),
     amount: z.string().min(1),
     resolution: z.string().min(1)
 });
 
-export const amountOptions=[
+export const amountOptions = [
     {
         value: "1",
         label: "1 Photo"
@@ -30,7 +30,7 @@ export const amountOptions=[
         label: "5 Photos"
     }
 ];
-export const resolutionOptions =[
+export const resolutionOptions = [
     {
         value: "256x256",
         label: "256x256"
