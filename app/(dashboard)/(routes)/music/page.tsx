@@ -17,8 +17,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema } from "./constants";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
+import { useProModel } from "@/hooks/use-pro-model";
 
 const MusicPage = () => {
+    const ProModel=useProModel();
     const router = useRouter();
 
     const [music, setMusic] = useState<string>();
@@ -39,8 +41,10 @@ const MusicPage = () => {
             setMusic(response.data.audio);
             form.reset();
         } catch (error: any) {
-            //todo:open pro model
-            console.log(error);
+            if(error?.response?.status === 403){
+                ProModel.onOpen();
+            }
+            // console.log(error);
         } finally {
             router.refresh();
         }

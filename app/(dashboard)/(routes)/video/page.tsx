@@ -16,8 +16,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema } from "./constants";
 import { Empty } from "@/components/empty";
 import { Loader } from "@/components/loader";
+import { useProModel } from "@/hooks/use-pro-model";
 
 const VideoPage = () => {
+    const ProModel= useProModel();
     const router = useRouter();
 
     const [video, setVideo] = useState<string>();
@@ -38,7 +40,9 @@ const VideoPage = () => {
             setVideo(response.data[0]);
             form.reset();
         } catch (error: any) {
-            //todo:open pro model
+            if(error?.response?.status === 403){
+                ProModel.onOpen();
+            }
             console.log(error);
         } finally {
             router.refresh();

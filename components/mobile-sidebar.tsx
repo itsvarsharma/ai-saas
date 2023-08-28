@@ -11,10 +11,8 @@ interface MobileSideBarProps{
     apiLimitCount: number;
 };
 const MobileSidebar = ({
-    apiLimitCount=0,
-}:{
-    apiLimitCount: number;
-}) => {
+    apiLimitCount,
+}: MobileSideBarProps) => {
     const [isMounted, setIsMounted] = useState(false);
     useEffect(() => {
         setIsMounted(true);

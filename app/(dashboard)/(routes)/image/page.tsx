@@ -21,8 +21,10 @@ import { cn } from "@/lib/utils";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardFooter } from "@/components/ui/card";
 import Image from "next/image";
+import { useProModel } from "@/hooks/use-pro-model";
 
 const ImagePage = () => {
+    const ProModel=useProModel();
     const router = useRouter();
     const [images, setImages] = useState<string[]>([])
 
@@ -46,8 +48,10 @@ const ImagePage = () => {
             setImages(urls);
             form.reset();
         } catch (error: any) {
-            //todo:open pro model
-            console.log(error);
+            if(error?.response?.status === 403){
+                ProModel.onOpen();
+            }
+            // console.log(error);
         } finally {
             router.refresh();
         }

@@ -20,8 +20,10 @@ import { Loader } from "@/components/loader";
 import { cn } from "@/lib/utils";
 import { UserAvatar } from "@/components/user-avatar";
 import { BotAvatar } from "@/components/bot-avatar";
+import { useProModel } from "@/hooks/use-pro-model";
 
 const CodePage = () => {
+    const ProModel=useProModel();
     const router = useRouter();
 
     const [messages, setMessages] = useState<ChatCompletionRequestMessage[]>([]);
@@ -44,8 +46,10 @@ const CodePage = () => {
 
             form.reset();
         } catch (error: any) {
-            //todo:open pro model
-            console.log(error);
+            if(error?.response?.status === 403){
+                ProModel.onOpen();
+            }
+            // console.log(error);
         } finally {
             router.refresh();
         }
@@ -63,16 +67,8 @@ const CodePage = () => {
                 <Form {...form}>
                     <form
                         onSubmit={form.handleSubmit(onSubmit)}
-                        className="rounded-lg 
-                        border 
-                        w-full 
-                        p-4 
-                        px-3 
-                        md:px-6 
-                        focus-within:shadow-sm
-                        grid
-                        grid-cols-12
-                        gap-2">
+                        className="rounded-lg  border  w-full  p-4  px-3  md:px-6 focus-within:shadow-sm
+                        grid grid-cols-12 gap-2">
                         <FormField
                             name="prompt"
                             render={({ field }) => (
